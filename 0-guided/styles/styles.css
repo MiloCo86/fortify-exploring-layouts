@@ -1,51 +1,253 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  border: black 1px solid;
 }
 
 html, body {
-  width: 100%;
-  height: 100%;
-  font-size: 40px;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid rgb(16, 19, 177);
 }
 
-.container {
+.layout {
+  border: 2px solid black;
+  width: 100%;
+  height: 100%;
   display: grid;
-  grid-template-columns: 0.75fr 5fr 0.75fr;
-  grid-template-rows: 0.75fr 4fr 0.75fr;
-  width: 100%;
-  height: 100%;
+  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-rows: 1fr 4fr 1fr;
+  grid-template-areas: "header header header" "nav main aside" "footer footer footer";
+}
+.layout header {
+  grid-area: header;
+  border: 2px solid #7B7554;
+  background: #1771BF;
+  color: #fff;
+}
+.layout nav {
+  grid-area: nav;
+  border: 2px solid #ABD94A;
+  background: #ABD94A;
+}
+.layout main {
+  grid-area: main;
+  border: 2px solid #F2B90F;
+  background: #F2B90F;
+}
+.layout aside {
+  grid-area: aside;
+  border: 2px solid #D97904;
+  background: #D97904;
+  color: #fff;
+}
+.layout footer {
+  grid-area: footer;
+  border: 2px solid #F23827;
+  background: #F23827;
+  color: #fff;
 }
 
-header {
-  background-color: #FF3366;
-  grid-column: 1/4;
+@media (max-width: 767px) {
+  .layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: "header" "nav" "main" "aside" "footer";
+  }
+  .layout header {
+    background: #F23827;
+    color: #000;
+  }
+  .layout nav {
+    background: #D97904;
+    color: #fff;
+  }
+  .layout main {
+    background: #F2B90F;
+    color: #fff;
+  }
+  .layout aside {
+    background: #ABD94A;
+    color: #000;
+  }
+  .layout footer {
+    background: #1771BF;
+    color: #000;
+  }
 }
-
-footer {
-  background-color: #011627;
-  color: white;
-  grid-column: 1/4;
+/* Extra Small Devices (Phones, <576px) - Example: iPhone SE */
+@media (max-width: 575.98px) {
+  .layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: "header" "nav" "main" "aside" "footer";
+  }
+  .layout header {
+    background: #D97904;
+    color: #000;
+  }
+  .layout nav {
+    background: #1771BF;
+    color: #fff;
+  }
+  .layout main {
+    background: #F2B90F;
+    color: #fff;
+  }
+  .layout aside {
+    background: #ABD94A;
+    color: #000;
+  }
+  .layout footer {
+    background: #F23827;
+    color: #000;
+  }
 }
-
-nav {
-  background-color: #2EC4B6;
-  grid-column: 1/2;
-  grid-row: 2/3;
+/* Small Devices (Small phones, ≥576px) - Example: Samsung Galaxy S10e */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .layout {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: "header nav" "main main" "footer footer";
+  }
+  .layout header {
+    background: #F2B90F;
+    color: #000;
+  }
+  .layout nav {
+    background: #ABD94A;
+    color: #fff;
+  }
+  .layout main {
+    background: #F23827;
+    color: #fff;
+  }
+  .layout aside {
+    background: #1771BF;
+    color: #000;
+    display: none;
+  }
+  .layout footer {
+    background: #D97904;
+    color: #000;
+  }
 }
-
-main {
-  background-color: #F6F7F8;
-  grid-column: 2/3;
-  grid-row: 2/3;
+/* Medium Devices (Tablets, ≥768px) - Example: iPad */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  /* CSS rules for medium devices like tablets */
+  .layout {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: "header header" "nav aside" "main main" "footer footer";
+  }
+  .layout header {
+    background: #1771BF;
+    color: #000;
+  }
+  .layout nav {
+    background: #D97904;
+    color: #fff;
+  }
+  .layout main {
+    background: #F2B90F;
+    color: #fff;
+  }
+  .layout aside {
+    background: #F23827;
+    color: #000;
+  }
+  .layout footer {
+    background: #ABD94A;
+    color: #000;
+  }
 }
-
-aside {
-  background-color: #20A4F3;
-  grid-column: 3/4;
-  grid-row: 2/3;
+/* Large Devices (Desktops, ≥992px) - Example: iPad Pro */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  /* CSS rules for large devices (small desktops, large tablets) */
+  .layout {
+    border: 2px solid black;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-rows: 1fr 4fr 1fr;
+    grid-template-areas: "header header header" "nav main aside" "footer footer footer";
+  }
+  .layout header {
+    grid-area: header;
+    border: 2px solid #1771BF;
+    background: #1771BF;
+    color: #fff;
+  }
+  .layout nav {
+    grid-area: nav;
+    border: 2px solid #ABD94A;
+    background: #ABD94A;
+  }
+  .layout main {
+    grid-area: main;
+    border: 2px solid #F2B90F;
+    background: #F2B90F;
+  }
+  .layout aside {
+    grid-area: aside;
+    border: 2px solid #D97904;
+    background: #D97904;
+    color: #fff;
+  }
+  .layout footer {
+    grid-area: footer;
+    border: 2px solid #F23827;
+    background: #F23827;
+    color: #fff;
+  }
+}
+/* Extra Large Devices (Large desktops, ≥1200px) - Example: MacBook Pro 15" */
+@media (min-width: 1200px) {
+  /* CSS rules for extra large devices (large desktops) */
+  .layout {
+    border: 2px solid black;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-rows: 1fr 4fr 1fr;
+    grid-template-areas: "header header header" "nav main aside" "footer footer footer";
+  }
+  .layout header {
+    grid-area: header;
+    border: 2px solid #F23827;
+    background: #F23827;
+    color: #fff;
+  }
+  .layout nav {
+    grid-area: nav;
+    border: 2px solid #D97904;
+    background: #D97904;
+  }
+  .layout main {
+    grid-area: main;
+    border: 2px solid #F2B90F;
+    background: #F2B90F;
+  }
+  .layout aside {
+    grid-area: aside;
+    border: 2px solid #ABD94A;
+    background: #ABD94A;
+    color: #fff;
+  }
+  .layout footer {
+    grid-area: footer;
+    border: 2px solid #1771BF;
+    background: #1771BF;
+    color: #fff;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */

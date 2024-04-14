@@ -1,49 +1,328 @@
-* {
+$color_one: #1771BF;
+$color_two: #ABD94A;
+$color_three: #F2B90F;
+$color_four: #D97904;
+$color_five: #F23827;
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    border: black 1px solid;;
 }
 
 html, body {
-    width: 100%;
-    height: 100%;
-    font-size: 40px;   
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid rgb(16, 19, 177);
 }
 
-.container {
+.layout {
+    border: 2px solid black;
+    width: 100%;
+    height: 100%;
     display: grid;
-    grid-template-columns: .75fr 5fr .75fr; 
-    grid-template-rows: .75fr 4fr .75fr;
-    width: 100%;
-    height: 100%;
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-rows: 1fr 4fr 1fr;
+    grid-template-areas: 
+    "header header header"
+    "nav main aside"
+    "footer footer footer";
+
+    header {
+        grid-area: header;
+        border: 2px solid #7B7554;
+        background: $color_one;
+        color: #fff;
+    }
+
+    nav {
+        grid-area: nav;
+        border: 2px solid $color_two;
+        background: $color_two;
+    }
+
+    main {
+        grid-area: main;
+        border: 2px solid $color_three;
+        background: $color_three;
+    }
+
+    aside {
+        grid-area: aside;
+        border: 2px solid $color_four;
+        background: $color_four;
+        color: #fff;
+    }
+
+    footer {
+        grid-area: footer;
+        border: 2px solid $color_five;
+        background: $color_five;
+        color: #fff;
+    }
 }
 
-header {
-    background-color: #FF3366 ;
-    grid-column: 1/4;
+@media (min-width: 768px) {
+
 }
 
-footer {
-    background-color: #011627;
-    color: white;
-    grid-column: 1/4;
+@media (max-width: 767px) {
+    .layout {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: 
+        "header"
+        "nav"
+        "main"
+        "aside"
+        "footer";
+
+
+        header {
+            background: $color_five;
+            color: #000;
+        }  
+
+        nav {
+            background: $color_four;
+            color: #fff;
+        }
+
+        main {
+            background: $color_three;
+            color: #fff;
+        }
+
+        aside {
+            background: $color_two;
+            color: #000;
+        }
+
+        footer {
+            background: $color_one;
+            color: #000;
+        }
+    }
 }
 
-nav {
-    background-color: #2EC4B6;
-    grid-column: 1/2;
-    grid-row: 2/3;
+/* Extra Small Devices (Phones, <576px) - Example: iPhone SE */
+@media (max-width: 575.98px) {
+    .layout {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: 
+        "header"
+        "nav"
+        "main"
+        "aside"
+        "footer";
+
+
+        header {
+            background: $color_four;
+            color: #000;
+        }  
+
+        nav {
+            background: $color_one;
+            color: #fff;
+        }
+
+        main {
+            background: $color_three;
+            color: #fff;
+        }
+
+        aside {
+            background: $color_two;
+            color: #000;
+        }
+
+        footer {
+            background: $color_five;
+            color: #000;
+        }
+    }
 }
 
-main {
-    background-color: #F6F7F8;
-    grid-column: 2/3;
-    grid-row: 2/3;
+/* Small Devices (Small phones, ≥576px) - Example: Samsung Galaxy S10e */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .layout {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: 
+        "header nav"
+        "main main"
+        "footer footer";
+
+        header {
+            background: $color_three;
+            color: #000;
+        }  
+
+        nav {
+            background: $color_two;
+            color: #fff;
+        }
+
+        main {
+            background: $color_five;
+            color: #fff;
+        }
+
+        aside {
+            background: $color_one;
+            color: #000;
+            display: none;
+        }
+
+        footer {
+            background: $color_four;
+            color: #000;
+        }
+    }
+
 }
 
-aside {
-    background-color: #20A4F3;
-    grid-column: 3/4;
-    grid-row: 2/3;
+/* Medium Devices (Tablets, ≥768px) - Example: iPad */
+@media (min-width: 768px) and (max-width: 991.98px) {
+/* CSS rules for medium devices like tablets */
+    .layout {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: 
+        "header header"
+        "nav aside"
+        "main main"
+        "footer footer";
+
+        header {
+            background: $color_one;
+            color: #000;
+        }  
+
+        nav {
+            background: $color_four;
+            color: #fff;
+        }
+
+        main {
+            background: $color_three;
+            color: #fff;
+        }
+
+        aside {
+            background: $color_five;
+            color: #000;
+        }
+
+        footer {
+            background: $color_two;
+            color: #000;
+        }
+    }
+}
+
+/* Large Devices (Desktops, ≥992px) - Example: iPad Pro */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+/* CSS rules for large devices (small desktops, large tablets) */
+    .layout {
+        border: 2px solid black;
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: 1fr 4fr 1fr;
+        grid-template-rows: 1fr 4fr 1fr;
+        grid-template-areas: 
+        "header header header"
+        "nav main aside"
+        "footer footer footer";
+
+        header {
+            grid-area: header;
+            border: 2px solid $color_one;
+            background: $color_one;
+            color: #fff;
+        }
+
+        nav {
+            grid-area: nav;
+            border: 2px solid $color_two;
+            background: $color_two;
+        }
+
+        main {
+            grid-area: main;
+            border: 2px solid $color_three;
+            background: $color_three;
+        }
+
+        aside {
+            grid-area: aside;
+            border: 2px solid $color_four;
+            background: $color_four;
+            color: #fff;
+        }
+
+        footer {
+            grid-area: footer;
+            border: 2px solid $color_five;
+            background: $color_five;
+            color: #fff;
+        }
+    } 
+}
+
+/* Extra Large Devices (Large desktops, ≥1200px) - Example: MacBook Pro 15" */
+@media (min-width: 1200px) {
+/* CSS rules for extra large devices (large desktops) */
+    .layout {
+        border: 2px solid black;
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: 1fr 4fr 1fr;
+        grid-template-rows: 1fr 4fr 1fr;
+        grid-template-areas: 
+        "header header header"
+        "nav main aside"
+        "footer footer footer";
+
+        header {
+            grid-area: header;
+            border: 2px solid $color_five;
+            background: $color_five;
+            color: #fff;
+        }
+
+        nav {
+            grid-area: nav;
+            border: 2px solid $color_four;
+            background: $color_four;
+        }
+
+        main {
+            grid-area: main;
+            border: 2px solid $color_three;
+            background: $color_three;
+        }
+
+        aside {
+            grid-area: aside;
+            border: 2px solid $color_two;
+            background: $color_two;
+            color: #fff;
+        }
+
+        footer {
+            grid-area: footer;
+            border: 2px solid $color_one;
+            background: $color_one;
+            color: #fff;
+        }
+    }
 }

@@ -1,0 +1,220 @@
+@import url("https://fonts.googleapis.com/css2?family=Concert+One&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+  font-family: "Reddit Mono", monospace;
+}
+
+body {
+  display: grid;
+  grid-template-rows: 50px 80%;
+  background-color: white;
+  justify-items: center;
+}
+
+.menu {
+  display: grid;
+  width: 100%;
+  height: 40px;
+  grid-template-columns: 100px 55% 30%;
+  grid-template-areas: "label menu buttons";
+  align-content: center;
+}
+.menu ul li {
+  border-radius: 5px;
+  cursor: pointer;
+}
+.menu label {
+  padding-top: 0;
+  font-size: 30px;
+  font-weight: bold;
+  padding-left: 20px;
+}
+.menu__bar {
+  padding-top: 8px;
+  padding-left: 10px;
+  gap: 10px;
+  display: flex;
+}
+.menu__login {
+  padding-top: 8px;
+  justify-self: end;
+}
+.menu__icon {
+  display: none;
+}
+.menu button {
+  width: 80px;
+  height: 25px;
+  border-radius: 5px;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}
+.menu button:hover {
+  border: 1px solid black;
+}
+
+.menu1 {
+  display: none;
+}
+
+#features:hover .menu1 {
+  display: block;
+  position: absolute;
+  background-color: white;
+  padding: 15px;
+  left: 80px;
+  top: 30px;
+  border-radius: 10px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+#features:hover .menu1 ul li:hover {
+  background-color: rgb(244, 247, 248);
+}
+
+.menu2 {
+  display: none;
+}
+
+#company:hover .menu2 {
+  display: block;
+  position: absolute;
+  background-color: white;
+  padding: 15px;
+  left: 200px;
+  top: 30px;
+  border-radius: 10px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+#company:hover .menu2 ul li:hover {
+  background-color: rgb(244, 247, 248);
+}
+
+.container {
+  margin-top: 40px;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "main pic";
+  gap: 5%;
+  width: 1000px;
+}
+.container__main {
+  grid-area: main;
+  margin-top: 80px;
+  margin-left: 100px;
+}
+.container__main h1 {
+  font-size: 50px;
+  margin: 10px;
+  width: 400px;
+}
+.container__main p {
+  font-size: 15px;
+  margin: 10px;
+  margin-top: 30px;
+  width: 400px;
+}
+.container__main button {
+  margin: 10px;
+  margin-top: 30px;
+  width: 100px;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid black;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+.container__main button:hover {
+  background-color: white;
+  color: black;
+}
+.container__main footer {
+  margin: 10px;
+  margin-top: 30px;
+}
+.container__main img {
+  width: 80px;
+}
+.container__picture {
+  grid-area: pic;
+  margin-top: 50px;
+}
+.container__picture img {
+  width: 300px;
+}
+
+#pic_mobile {
+  display: none;
+}
+
+@media screen and (max-width: 450px) {
+  #pic_desktop {
+    display: none;
+  }
+  #pic_mobile {
+    display: block;
+  }
+  body {
+    width: 450px;
+    justify-items: left;
+  }
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "pic" "main";
+  }
+  .container__picture {
+    margin-top: 50px;
+    margin-left: 50px;
+  }
+  .container__main {
+    margin-top: 0;
+    margin-left: 20px;
+  }
+  .container__main h1 {
+    font-size: 40px;
+  }
+  .container__main p {
+    text-align: center;
+    margin-top: 10px;
+    width: 350px;
+  }
+  .container__main button {
+    margin-top: 10px;
+    margin-left: 120px;
+  }
+  .container__main footer {
+    margin-left: 0;
+  }
+  .menu {
+    margin-top: 10px;
+    width: 450px;
+  }
+  .menu__bar {
+    display: none;
+  }
+  .menu__login {
+    display: none;
+  }
+  .menu__icon {
+    grid-area: buttons;
+    justify-self: left;
+    margin-top: 10px;
+    margin-left: 20px;
+    display: block;
+    cursor: pointer;
+  }
+  .menu__icon img {
+    width: 20px;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
